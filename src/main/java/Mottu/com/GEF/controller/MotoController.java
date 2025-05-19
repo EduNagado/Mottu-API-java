@@ -4,12 +4,16 @@ package Mottu.com.GEF.controller;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import Mottu.com.GEF.dto.DadosListagemMoto;
 import Mottu.com.GEF.dto.MotoDTO;
 import Mottu.com.GEF.model.Moto;
 import Mottu.com.GEF.model.User;
@@ -42,5 +46,11 @@ public class MotoController {
         .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
     System.out.println("Usuário " + usuario.getId() +" Cadastrou uma moto com sucesso");
     repository.save(new Moto(dadosMoto, usuario));
-}
+    }
+
+    @GetMapping
+    public Page<DadosListagemMoto> listar(Pageable paginacao){
+        return repository.findAll(paginacao)
+            .map(DadosListagemMoto::new);
+    }
 }

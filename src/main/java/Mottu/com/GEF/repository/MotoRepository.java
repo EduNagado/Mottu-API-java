@@ -6,4 +6,5 @@ import Mottu.com.GEF.model.Moto;
 
 public interface  MotoRepository extends JpaRepository<Moto, UUID> {
     
+    
 }
