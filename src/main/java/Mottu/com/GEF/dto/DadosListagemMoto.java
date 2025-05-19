@@ -2,12 +2,14 @@ package Mottu.com.GEF.dto;
 
 
 
+import java.util.UUID;
+
 import Mottu.com.GEF.model.Moto;
 import Mottu.com.GEF.model.enums.Modelo;
 import Mottu.com.GEF.model.enums.Status;
 
-public record DadosListagemMoto(Modelo modelo, String placa, String cor, Status status ) {
+public record DadosListagemMoto(UUID id, Modelo modelo, String placa, String cor, Status status ) {
     public DadosListagemMoto(Moto moto){
-        this(moto.getModelo(), moto.getPlaca(), moto.getCor(), moto.getStatus());
+        this(moto.getId(), moto.getModelo(), moto.getPlaca(), moto.getCor(), moto.getStatus());
     }
 }
