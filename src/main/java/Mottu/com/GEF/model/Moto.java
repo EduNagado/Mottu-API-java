@@ -2,6 +2,7 @@ package Mottu.com.GEF.model;
 
 import java.util.UUID;
 
+import Mottu.com.GEF.dto.DadosAtualizacaoMoto;
 import Mottu.com.GEF.dto.MotoDTO;
 import Mottu.com.GEF.model.enums.Modelo;
 import Mottu.com.GEF.model.enums.Status;
@@ -29,17 +30,11 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of="id")
 public class Moto {
 
+    
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "usuario_id", nullable = false)
     private User usuario;
     
-    public Moto(MotoDTO dadosMoto, User usuario) {
-        this.modelo = dadosMoto.modelo();
-        this.cor = dadosMoto.cor();
-        this.placa = dadosMoto.placa();
-        this.status = dadosMoto.status();
-        this.usuario = usuario;
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -51,6 +46,29 @@ public class Moto {
     private String cor;
     private String placa;
 
-     @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.STRING)
     private Status status;
+
+    public Moto(MotoDTO dadosMoto, User usuario) {
+        this.modelo = dadosMoto.modelo();
+        this.cor = dadosMoto.cor();
+        this.placa = dadosMoto.placa();
+        this.status = dadosMoto.status();
+        this.usuario = usuario;
+    }
+
+    public void atualizarInformacoes(DadosAtualizacaoMoto dados) {
+    if (dados.modelo() != null) {
+        this.modelo = dados.modelo();
+    }
+    if (dados.placa() != null) {
+        this.placa = dados.placa();
+    }
+    if (dados.cor() != null) {
+        this.cor = dados.cor();
+    }
+    if (dados.status() != null) {
+        this.status = dados.status();
+    }
+}
 }
