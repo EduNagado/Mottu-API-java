@@ -6,6 +6,7 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -49,7 +50,7 @@ public class MotoController {
     }
 
     @GetMapping
-    public Page<DadosListagemMoto> listar(Pageable paginacao){
+    public Page<DadosListagemMoto> listar(@PageableDefault(size = 10, sort={"modelo"}) Pageable paginacao){
         return repository.findAll(paginacao)
             .map(DadosListagemMoto::new);
     }
