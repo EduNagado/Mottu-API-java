@@ -47,7 +47,7 @@ public class AuthController {
     }
 
     @Cacheable(value = "usuarios-pagina-fixa")
-    @GetMapping("listar")
+    @GetMapping("/listar")
     public ResponseEntity<Page<DadosListagemUser>> listar() {
         Pageable paginacao = PageRequest.of(0, 20, Sort.by("username"));
         Page<DadosListagemUser> page = repository.findAll(paginacao)
