@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,9 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import Mottu.com.GEF.dto.DadosAtualizacaoMoto;
-import Mottu.com.GEF.dto.DadosListagemMoto;
 import Mottu.com.GEF.dto.MotoDTO;
+import Mottu.com.GEF.dto.get.DadosListagemMoto;
+import Mottu.com.GEF.dto.put.DadosAtualizacaoMoto;
 import Mottu.com.GEF.model.Moto;
 import Mottu.com.GEF.model.User;
 import Mottu.com.GEF.repository.AuthRepository;
@@ -28,7 +30,7 @@ import jakarta.validation.Valid;
 
 
 @RestController
-@RequestMapping("/CadastrarMoto")
+@RequestMapping("Moto")
 public class MotoController {
     
     @Autowired
@@ -37,7 +39,7 @@ public class MotoController {
     @Autowired
     private AuthRepository userRepository;
 
-  @PostMapping
+    @PostMapping("/cadastrar")
     public void registerMoto(@RequestBody @Valid MotoDTO dadosMoto, @RequestParam String usuarioId) {
     // Converte para UUID com hífens, se necessário
     String uuidComHifens = usuarioId.replaceFirst(
@@ -52,17 +54,23 @@ public class MotoController {
     repository.save(new Moto(dadosMoto, usuario));
     }
 
-    @GetMapping
+    @GetMapping("/listar")
     public Page<DadosListagemMoto> listar(@PageableDefault(size = 10, sort={"modelo"}) Pageable paginacao){
         return repository.findAll(paginacao)
             .map(DadosListagemMoto::new);
     }
 
-    @PutMapping
+    @PutMapping("/atualizar")
     @Transactional
-    public void atualizar(@RequestBody @Valid DadosAtualizacaoMoto dados) {
-        var moto = repository.getReferenceById(dados.id());
-        moto.atualizarInformacoes(dados);
+    public void atualizar(@RequestBody @Valid DadosAtualizacaoMoto dadosMoto) {
+        Moto moto = repository.findById(dadosMoto.id())
+            .orElseThrow(() -> new RuntimeException("Moto não encontrada com ID: " + dadosMoto.id()));
+        moto.atualizarInformacoes(dadosMoto);
     }
     
+    @DeleteMapping("/{id}")
+    @Transactional
+    public void delete(@PathVariable UUID id){
+        repository.deleteById(id);
+    }
 }
