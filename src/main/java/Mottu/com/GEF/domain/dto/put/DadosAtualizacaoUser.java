@@ -1,4 +1,4 @@
-package Mottu.com.GEF.dto.put;
+package Mottu.com.GEF.domain.dto.put;
 
 import java.util.UUID;
 

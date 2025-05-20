@@ -1,8 +1,8 @@
-package Mottu.com.GEF.model;
+package Mottu.com.GEF.domain.model;
 import java.util.UUID;
 
-import Mottu.com.GEF.dto.AuthDTO;
-import Mottu.com.GEF.dto.put.DadosAtualizacaoUser;
+import Mottu.com.GEF.domain.dto.AuthDTO;
+import Mottu.com.GEF.domain.dto.put.DadosAtualizacaoUser;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

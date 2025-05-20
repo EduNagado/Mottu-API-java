@@ -1,11 +1,11 @@
-package Mottu.com.GEF.model;
+package Mottu.com.GEF.domain.model;
 
 import java.util.UUID;
 
-import Mottu.com.GEF.dto.MotoDTO;
-import Mottu.com.GEF.dto.put.DadosAtualizacaoMoto;
-import Mottu.com.GEF.model.enums.Modelo;
-import Mottu.com.GEF.model.enums.Status;
+import Mottu.com.GEF.domain.dto.MotoDTO;
+import Mottu.com.GEF.domain.dto.put.DadosAtualizacaoMoto;
+import Mottu.com.GEF.domain.model.enums.Modelo;
+import Mottu.com.GEF.domain.model.enums.Status;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;

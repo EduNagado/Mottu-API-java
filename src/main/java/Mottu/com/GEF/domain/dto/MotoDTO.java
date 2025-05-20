@@ -1,8 +1,8 @@
-package Mottu.com.GEF.dto;
+package Mottu.com.GEF.domain.dto;
 
 
-import Mottu.com.GEF.model.enums.Modelo;
-import Mottu.com.GEF.model.enums.Status;
+import Mottu.com.GEF.domain.model.enums.Modelo;
+import Mottu.com.GEF.domain.model.enums.Status;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;

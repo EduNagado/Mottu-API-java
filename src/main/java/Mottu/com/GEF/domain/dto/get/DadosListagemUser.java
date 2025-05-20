@@ -1,6 +1,6 @@
-package Mottu.com.GEF.dto.get;
+package Mottu.com.GEF.domain.dto.get;
 
-import Mottu.com.GEF.model.User;
+import Mottu.com.GEF.domain.model.User;
 
 public record DadosListagemUser( String username, String email) {
     public DadosListagemUser(User user) {

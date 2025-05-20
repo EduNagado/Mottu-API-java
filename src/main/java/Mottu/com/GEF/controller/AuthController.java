@@ -19,12 +19,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import Mottu.com.GEF.dto.AuthDTO;
-import Mottu.com.GEF.dto.get.DadosListagemUser;
-import Mottu.com.GEF.dto.put.DadosAtualizacaoUser;
-import Mottu.com.GEF.dto.put.DadosDetalhamentoUser;
-import Mottu.com.GEF.model.User;
-import Mottu.com.GEF.repository.AuthRepository;
+import Mottu.com.GEF.domain.dto.AuthDTO;
+import Mottu.com.GEF.domain.dto.get.DadosListagemUser;
+import Mottu.com.GEF.domain.dto.put.DadosAtualizacaoUser;
+import Mottu.com.GEF.domain.dto.put.DadosDetalhamentoUser;
+import Mottu.com.GEF.domain.model.User;
+import Mottu.com.GEF.domain.repository.AuthRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 

@@ -11,15 +11,14 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import Mottu.com.GEF.dto.MotoDTO;
-import Mottu.com.GEF.dto.get.DadosListagemMoto;
-import Mottu.com.GEF.dto.put.DadosAtualizacaoMoto;
-import Mottu.com.GEF.dto.put.DadosDetalhamentoMoto;
-import Mottu.com.GEF.model.Moto;
-import Mottu.com.GEF.model.User;
-import Mottu.com.GEF.repository.AuthRepository;
-import Mottu.com.GEF.repository.MotoRepository;
-
+import Mottu.com.GEF.domain.dto.MotoDTO;
+import Mottu.com.GEF.domain.dto.get.DadosListagemMoto;
+import Mottu.com.GEF.domain.dto.put.DadosAtualizacaoMoto;
+import Mottu.com.GEF.domain.dto.put.DadosDetalhamentoMoto;
+import Mottu.com.GEF.domain.model.Moto;
+import Mottu.com.GEF.domain.model.User;
+import Mottu.com.GEF.domain.repository.AuthRepository;
+import Mottu.com.GEF.domain.repository.MotoRepository;
 import jakarta.validation.Valid;
 
 @RestController

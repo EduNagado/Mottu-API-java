@@ -1,4 +1,4 @@
-package Mottu.com.GEF.model.enums;
+package Mottu.com.GEF.domain.model.enums;
 
 public enum Status {
     DISPONIVEL,

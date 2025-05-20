@@ -1,4 +1,4 @@
-package Mottu.com.GEF.dto;
+package Mottu.com.GEF.domain.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
