@@ -76,18 +76,18 @@ A API roda localmente, por padrão, na porta `8080`. Use uma ferramenta como **P
 
 ## 🚀🐳 Como rodar o container Docker
 
-###faça o build com:
+### faça o build com:
 #### sudo docker build -t gef-api-java .
 
-###Rode o container mapeando a porta 8080 para acesso externo:
-####sudo docker run -d -p 8080:8080 --name container-api gef-api-java
+### Rode o container mapeando a porta 8080 para acesso externo:
+#### sudo docker run -d -p 8080:8080 --name container-api gef-api-java
 
-###Verifique se o container está rodando:
-####sudo docker ps
+### Verifique se o container está rodando:
+#### sudo docker ps
 
-###Acesse a API pelo navegador ou ferramentas como Postman no endereço:
-####http://localhost:8080
+### Acesse a API pelo navegador ou ferramentas como Postman no endereço:
+#### http://localhost:8080
 
-###Para parar e remover o container quando não precisar mais:
-####sudo docker stop container-api
-####sudo docker rm container-api
+### Para parar e remover o container quando não precisar mais:
+#### sudo docker stop container-api
+#### sudo docker rm container-api
