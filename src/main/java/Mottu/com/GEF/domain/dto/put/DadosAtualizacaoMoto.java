@@ -1,9 +1,9 @@
-package Mottu.com.GEF.dto;
+package Mottu.com.GEF.domain.dto.put;
 
 import java.util.UUID;
 
-import Mottu.com.GEF.model.enums.Modelo;
-import Mottu.com.GEF.model.enums.Status;
+import Mottu.com.GEF.domain.model.enums.Modelo;
+import Mottu.com.GEF.domain.model.enums.Status;
 import jakarta.validation.constraints.NotNull;
 
 

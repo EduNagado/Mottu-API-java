@@ -1,11 +1,11 @@
-package Mottu.com.GEF.model;
+package Mottu.com.GEF.domain.model;
 
 import java.util.UUID;
 
-import Mottu.com.GEF.dto.DadosAtualizacaoMoto;
-import Mottu.com.GEF.dto.MotoDTO;
-import Mottu.com.GEF.model.enums.Modelo;
-import Mottu.com.GEF.model.enums.Status;
+import Mottu.com.GEF.domain.dto.MotoDTO;
+import Mottu.com.GEF.domain.dto.put.DadosAtualizacaoMoto;
+import Mottu.com.GEF.domain.model.enums.Modelo;
+import Mottu.com.GEF.domain.model.enums.Status;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -57,18 +57,18 @@ public class Moto {
         this.usuario = usuario;
     }
 
-    public void atualizarInformacoes(DadosAtualizacaoMoto dados) {
-    if (dados.modelo() != null) {
-        this.modelo = dados.modelo();
+    public void atualizarInformacoes(DadosAtualizacaoMoto dadosMoto) {
+    if (dadosMoto.modelo() != null) {
+        this.modelo = dadosMoto.modelo();
     }
-    if (dados.placa() != null) {
-        this.placa = dados.placa();
+    if (dadosMoto.placa() != null) {
+        this.placa = dadosMoto.placa();
     }
-    if (dados.cor() != null) {
-        this.cor = dados.cor();
+    if (dadosMoto.cor() != null) {
+        this.cor = dadosMoto.cor();
     }
-    if (dados.status() != null) {
-        this.status = dados.status();
+    if (dadosMoto.status() != null) {
+        this.status = dadosMoto.status();
     }
 }
 }

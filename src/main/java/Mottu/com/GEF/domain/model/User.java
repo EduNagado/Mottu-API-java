@@ -1,8 +1,8 @@
-package Mottu.com.GEF.model;
-
+package Mottu.com.GEF.domain.model;
 import java.util.UUID;
 
-import Mottu.com.GEF.dto.AuthDTO;
+import Mottu.com.GEF.domain.dto.AuthDTO;
+import Mottu.com.GEF.domain.dto.put.DadosAtualizacaoUser;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -34,4 +34,13 @@ public class User {
     private String password;
     private String email;
 
+
+    public void atualizarInformacoes (DadosAtualizacaoUser dados){
+        if(dados.username() != null ){
+            this.username = dados.username();
+        }
+         if(dados.email() != null ){
+            this.email = dados.email();
+        }
+    }
 }
