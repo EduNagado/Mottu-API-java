@@ -76,17 +76,17 @@ A API roda localmente, por padrão, na porta `8080`. Use uma ferramenta como **P
 
 ## 🚀🐳 Como rodar o container Docker
 
-### faça o build com:
-#### sudo docker build -t gef-api-java .
+### faça o pull com:
+#### sudo docker pull edunagado/gef-api:v1
 
-### Rode o container mapeando a porta 8080 para acesso externo:
-#### sudo docker run -d -p 8080:8080 --name container-api gef-api-java
+### Rode o container:
+#### sudo docker run -d --name gef-api -p 8080:8080 --user 1000:1000 --restart always edunagado/gef-api:v1
 
 ### Verifique se o container está rodando:
 #### sudo docker ps
 
 ### Acesse a API pelo navegador ou ferramentas como Postman no endereço:
-#### http://localhost:8080
+#### http://localhost:8080 ou se tiver dentro da vm curl http://SEU_IP_PUBLICO:8080
 
 ### Para parar e remover o container quando não precisar mais:
 #### sudo docker stop container-api
